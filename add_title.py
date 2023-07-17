@@ -20,6 +20,9 @@ def get_title_from_first_link_text(text: str) -> str | None:
         return None
     if text[0] != '[':
         text = text[1:]
+    text = text.lstrip('📊🔧🐍🏃🦀🐚📄🔧🎥')
+    if text[0] != '[':
+        text = text[1:]
     text = text.strip()
     if text[0] != '[':
         return None
