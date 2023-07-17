@@ -23,6 +23,7 @@ keywords = ["blog", "golang", "python", "elixir", "rust", "security"]
 DateFormat = "2006-02-01"
 defaultTheme = "auto"
 disableThemeToggle = false
+images = ["/static/logo.png"]
 
 ShowReadingTime = true
 ShowShareButtons = true
@@ -54,8 +55,8 @@ Text = "📝 source"
 appendFilePath = true
 
 [params.homeInfoParams]
-Title = "Hi, I'm Gram 👋"
-Content = "I write about 🐍 Python, 🏃 Go, 🧪 Elixir, 🦀 Rust, and some other software stuff."
+Title = "Welcome to ITGram 👋"
+Content = "A collection of links to cool tools and blog posts. All with short descriptions, reviews, and opinions."
 
 [[menu.main]]
 name = "📢 telegram"
