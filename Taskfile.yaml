@@ -6,6 +6,9 @@ vars:
   HUGO_VERSION: "0.115.0"
   HUGO_RELEASES: https://github.com/gohugoio/hugo/releases/download/
 
+dotenv:
+  - ".env"
+
 tasks:
   install:hugo:
     status:
@@ -42,3 +45,10 @@ tasks:
       - install
     cmds:
       - ./bin/hugo {{.CLI_ARGS}}
+
+  schedule:
+    cmds:
+      # - python3 -m pip install telethon
+      - test $API_ID
+      - test $API_HASH
+      - python3 schedule_posts.py {{.CLI_ARGS}}
