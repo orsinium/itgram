@@ -1,4 +1,4 @@
-# ITGram
+# 🐿 ITGram
 
 ITGram is a collection of over 500 (and counting) links to cool tools, libraries, and blog posts, complete with bite-sized descriptions, summaries, reviews, and opinions. It runs since 2018 and includes content about Python, Go, Rust, Elixir, all kinds of small programming laguages, security, IT, Scrum, and everything else that I find interesting.
 
