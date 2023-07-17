@@ -3,7 +3,7 @@ from pathlib import Path
 import re
 import yaml
 
-REX_SLUG = re.compile(r'[a-zA-Z\-]{,20}')
+REX_SLUG = re.compile(r'[a-zA-Z\-\.\s]{,20}')
 
 
 for dir_path in sorted(Path('content', 'posts').iterdir()):
@@ -18,5 +18,7 @@ for dir_path in sorted(Path('content', 'posts').iterdir()):
         if not REX_SLUG.fullmatch(title):
             continue
         title = title.lower()
+        title = title.replace('.', '-')
+        title = title.replace(' ', '-')
         new_path = path.parent / f'{path.stem[:10]}-{title}.md'
         path.rename(new_path)
