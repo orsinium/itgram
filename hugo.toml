@@ -1,0 +1,75 @@
+baseURL = "https://itgram.orsinium.dev/"
+languageCode = "en-us"
+title = "ITGram"
+paginate = 40
+theme = "PaperMod"
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+[minify]
+disableXML = true
+minifyOutput = true
+
+[params]
+env = "production"
+keywords = ["blog", "golang", "python", "elixir", "rust", "security"]
+# images = "["<link or path of image for opengraph, twitter-cards>"]"
+DateFormat = "2006-02-01"
+defaultTheme = "auto"
+disableThemeToggle = false
+
+ShowReadingTime = true
+ShowShareButtons = true
+ShowPostNavLinks = false
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = true
+ShowWordCount = true
+ShowRssButtonInSectionTermList = true
+UseHugoToc = true
+disableSpecial1stPost = true
+disableScrollToTop = false
+comments = false
+hidemeta = false
+hideSummary = true
+showtoc = true
+tocopen = false
+
+socialIcons = [
+    {name = "home",     url = "https://orsinium.dev/"},
+    {name = "rss",      url = "/index.xml"},
+    {name = "github",   url = "https://github.com/orsinium/"},
+    {name = "linkedin", url = "https://www.linkedin.com/in/orsinium/"},
+    {name = "telegram", url = "https://t.me/s/itgram_channel"},
+]
+
+[params.editPost]
+URL = "https://github.com/orsinium/itgram/blob/master/content/"
+Text = "source"
+appendFilePath = true
+
+[params.homeInfoParams]
+Title = "Hi, I'm Gram 👋"
+Content = "I write about 🐍 Python, 🏃 Go, 🧪 Elixir, 🦀 Rust, and some other software stuff."
+
+[[menu.main]]
+name = "📢 telegram"
+url = "https://t.me/s/itgram_channel"
+weight = "1"
+
+[[menu.main]]
+name = "📶 rss"
+url = "/index.xml"
+weight = "10"
+
+[[menu.main]]
+name = "🏷 tags"
+url = "/tags/"
+weight = "20"
+
+[[menu.main]]
+name = "👋 me"
+url = "https://orsinium.dev"
+weight = "30"
