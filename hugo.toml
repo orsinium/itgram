@@ -50,7 +50,7 @@ socialIcons = [
 
 [params.editPost]
 URL = "https://github.com/orsinium/itgram/blob/master/content/"
-Text = "source"
+Text = "📝 source"
 appendFilePath = true
 
 [params.homeInfoParams]
