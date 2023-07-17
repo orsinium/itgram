@@ -5,10 +5,12 @@ from pathlib import Path
 from random import randint
 from telethon import TelegramClient
 from telethon.types import Message
+from zoneinfo import ZoneInfo
 
 # Remember to use your own values from my.telegram.org!
 client = TelegramClient('bot', os.environ['API_ID'], os.environ['API_HASH'])
 CHANNEL = 'itgram_channel'
+TZ = ZoneInfo('Europe/Amsterdam')
 
 
 async def scheduled() -> list[date]:
@@ -21,9 +23,9 @@ async def scheduled() -> list[date]:
 
 
 async def schedule_post(send_on: date, path: Path) -> None:
-    send_at = datetime.combine(send_on, time(15, 0, 0))
+    send_at = datetime.combine(send_on, time(15, 30, 0, tzinfo=TZ))
     send_at += timedelta(minutes=randint(0, 60))
-    in10m = datetime.now() + timedelta(minutes=10)
+    in10m = datetime.now(TZ) + timedelta(minutes=10)
     if send_at < in10m:
         send_at = in10m
 
@@ -32,6 +34,7 @@ async def schedule_post(send_on: date, path: Path) -> None:
     text = text.split('\n---\n', maxsplit=1)[1]
 
     print(f'scheduling {path.stem}')
+    send_at
     await client.send_message(
         CHANNEL,
         text,
