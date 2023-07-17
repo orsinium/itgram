@@ -13,6 +13,9 @@ buildExpired = false
 disableXML = true
 minifyOutput = true
 
+[outputs]
+home = ["HTML", "RSS", "JSON"]
+
 [params]
 env = "production"
 keywords = ["blog", "golang", "python", "elixir", "rust", "security"]
@@ -34,7 +37,7 @@ disableScrollToTop = false
 comments = false
 hidemeta = false
 hideSummary = true
-showtoc = true
+showtoc = false
 tocopen = false
 
 socialIcons = [
@@ -63,6 +66,11 @@ weight = "1"
 name = "📶 rss"
 url = "/index.xml"
 weight = "10"
+
+[[menu.main]]
+name = "🔎 search"
+url = "/search/"
+weight = "15"
 
 [[menu.main]]
 name = "🏷 tags"
