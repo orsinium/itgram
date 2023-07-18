@@ -1,11 +1,15 @@
 import asyncio
-from datetime import date, datetime, time, timedelta
 import os
+from datetime import date, datetime, time, timedelta
 from pathlib import Path
 from random import randint
+from typing import Any
+from zoneinfo import ZoneInfo
+
+import yaml
 from telethon import TelegramClient
 from telethon.types import Message
-from zoneinfo import ZoneInfo
+
 
 # Remember to use your own values from my.telegram.org!
 client = TelegramClient('bot', os.environ['API_ID'], os.environ['API_HASH'])
@@ -31,10 +35,16 @@ async def schedule_post(send_on: date, path: Path) -> None:
 
     text = path.read_text()
     text = text.lstrip('-')
-    text = text.split('\n---\n', maxsplit=1)[1]
+    text = text.rstrip()
+    meta_raw, text = text.split('\n---\n', maxsplit=1)
+
+    meta: dict[str, Any] = yaml.safe_load(meta_raw)
+    assert path.stem.startswith(meta['date'].isoformat())
+    tags = meta.get('tags')
+    if tags:
+        text += '\n\n' + ' '.join(f'#{tag}' for tag in sorted(tags))
 
     print(f'scheduling {path.stem}')
-    send_at
     await client.send_message(
         CHANNEL,
         text,
