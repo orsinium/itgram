@@ -47,6 +47,7 @@ tasks:
       - ./bin/hugo {{.CLI_ARGS}}
 
   schedule:
+    desc: "Schedule future posts to be published in Telegram"
     cmds:
       # - python3 -m pip install telethon
       - test $API_ID
